@@ -39,6 +39,7 @@ const notesList = [
   <div></div>
   <Header />
   <AllNotes :notes="notesList" />
+  <p>check for changes</p>
 </template>
 
 <style scoped></style>

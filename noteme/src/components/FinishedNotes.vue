@@ -15,7 +15,7 @@ defineProps({
         class="pb-4"
       >
         <div
-          v-if="!note.finished"
+          v-if="note.finished"
           class="flex justify-between gap-x-6 p-5 rounded-2xl bg-yellow-200"
         >
           <div class="flex min-w-0 gap-x-4">

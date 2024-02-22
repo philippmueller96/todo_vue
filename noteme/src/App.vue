@@ -44,19 +44,38 @@ const notesList = ref([
     finished: true,
   },
 ]);
+
+const currentView = ref("allNotes");
+
+const showAllNotes = () => {
+  currentView.value = "allNotes";
+};
+
+const showFinishedNotes = () => {
+  currentView.value = "finishedNotes";
+};
+
+const changeFinished = () => {
+  console.log("moved");
+};
 </script>
 
 <template>
-  <div></div>
   <Header
     @showAllNotes="showAllNotes"
-    @showCompletedNotes="showComppletedNotes"
+    @showFinishedNotes="showFinishedNotes"
   />
   <div v-if="currentView === 'allNotes'">
-    <AllNotes :notes="notesList" />
+    <AllNotes
+      :notes="notesList"
+      @changeFinished="changeFinished"
+    />
   </div>
   <div v-else-if="currentView === 'finishedNotes'">
-    <FinishedNotes :notes="notesList" />
+    <FinishedNotes
+      :notes="notesList"
+      @changeFinished="changeFinished"
+    />
   </div>
 </template>
 

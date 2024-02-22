@@ -22,6 +22,7 @@ defineProps({
             <input
               type="checkbox"
               class="w-7 flex-none rounded-full"
+              
             />
             <div class="min-w-0 flex-auto">
               <p class="text-sm font-semibold leading-6 text-gray-900">

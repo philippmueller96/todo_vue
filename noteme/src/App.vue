@@ -45,14 +45,16 @@ const notesList = ref([
   },
 ]);
 
-const currentView = ref("allNotes");
+let currentView = false;
 
 const showAllNotes = () => {
-  currentView.value = "allNotes";
+  currentView = false;
+  console.log(currentView);
 };
 
 const showFinishedNotes = () => {
-  currentView.value = "finishedNotes";
+  currentView = true;
+  console.log(currentView)
 };
 
 const changeFinished = () => {
@@ -65,15 +67,10 @@ const changeFinished = () => {
     @showAllNotes="showAllNotes"
     @showFinishedNotes="showFinishedNotes"
   />
-  <div v-if="currentView === 'allNotes'">
+  <div>
     <AllNotes
       :notes="notesList"
-      @changeFinished="changeFinished"
-    />
-  </div>
-  <div v-else-if="currentView === 'finishedNotes'">
-    <FinishedNotes
-      :notes="notesList"
+      :currentList="currentView"
       @changeFinished="changeFinished"
     />
   </div>

@@ -1,9 +1,19 @@
 <script setup lang="ts">
 defineProps({
   notes: Object,
+  currentList: Boolean,
 });
 
 const emit = defineEmits();
+
+const changeList = () => {
+  if (currentList === false) {
+    return !note.finished;
+  } else if (currentList === true) {
+    return note.finished;
+    3;
+  }
+};
 
 const changeFinished = () => {
   emit("changeFinished");
@@ -21,7 +31,7 @@ const changeFinished = () => {
         class="pb-4"
       >
         <div
-          v-if="!note.finished"
+          v-if="changeList"
           class="flex justify-between gap-x-6 p-5 rounded-2xl bg-yellow-200"
         >
           <div class="flex min-w-0 gap-x-4">

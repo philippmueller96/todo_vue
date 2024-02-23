@@ -54,8 +54,11 @@ const showFinishedNotes = () => {
   currentView.value = true;
 };
 
-const changeFinished = () => {
-  console.log("moved");
+const changeFinished = (note: boolean) => {
+  console.log("Finished was: " + note);
+  note = !note;
+  console.log("Finished ist: " + note);
+  console.log(notesList);
 };
 </script>
 

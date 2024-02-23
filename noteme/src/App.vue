@@ -2,7 +2,6 @@
 import { ref } from "vue";
 import Header from "./components/Header.vue";
 import AllNotes from "./components/AllNotes.vue";
-import FinishedNotes from "./components/FinishedNotes.vue";
 
 const notesList = ref([
   {
@@ -45,16 +44,14 @@ const notesList = ref([
   },
 ]);
 
-let currentView = false;
+const currentView = ref(false);
 
 const showAllNotes = () => {
-  currentView = false;
-  console.log(currentView);
+  currentView.value = false;
 };
 
 const showFinishedNotes = () => {
-  currentView = true;
-  console.log(currentView)
+  currentView.value = true;
 };
 
 const changeFinished = () => {

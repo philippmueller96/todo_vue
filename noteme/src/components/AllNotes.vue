@@ -4,7 +4,7 @@ const props = defineProps({
   currentList: Boolean,
 });
 
-const changeList = (note) => {
+const changeList = (note: any) => {
   if (props.currentList === false) {
     return !note.finished;
   } else if (props.currentList === true) {

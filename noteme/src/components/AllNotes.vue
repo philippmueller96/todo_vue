@@ -33,7 +33,7 @@ const emit = defineEmits();
             <input
               type="checkbox"
               class="w-7 flex-none rounded-full"
-              @click="$emit('changeFinished', note.finished)"
+              @click="$emit('changeFinished', note.id)"
             />
             <div class="min-w-0 flex-auto">
               <p class="text-sm font-semibold leading-6 text-gray-900">

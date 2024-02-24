@@ -54,11 +54,15 @@ const showFinishedNotes = () => {
   currentView.value = true;
 };
 
-const changeFinished = (note: boolean) => {
-  console.log("Finished was: " + note);
-  note = !note;
-  console.log("Finished ist: " + note);
-  console.log(notesList);
+const changeFinished = (id: number) => {
+  const foundNote = notesList.value.find((obj) => obj.id === id);
+  if (foundNote) {
+    console.log("Notiz gefunden: " + foundNote);
+    setTimeout(() => {
+      foundNote.finished = !foundNote.finished;
+      console.log("Notiz geändert");
+    }, 500);
+  }
 };
 </script>
 

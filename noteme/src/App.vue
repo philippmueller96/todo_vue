@@ -57,16 +57,14 @@ const showFinishedNotes = () => {
 const changeFinished = (id: number) => {
   const foundNote = notesList.value.find((obj) => obj.id === id);
   if (foundNote) {
-    console.log("Notiz gefunden: " + foundNote);
     setTimeout(() => {
       foundNote.finished = !foundNote.finished;
-      console.log("Notiz geändert");
     }, 500);
   }
 };
 
 const addNewNote = (
-  newID: number,
+  newId: number,
   newTitle: string,
   newDescription: string,
   newCreationDate: string,
@@ -75,7 +73,7 @@ const addNewNote = (
   newFinished: boolean
 ) => {
   notesList.value.push({
-    id: newID,
+    id: newId,
     title: newTitle,
     description: newDescription,
     creationDate: newCreationDate,
@@ -83,6 +81,7 @@ const addNewNote = (
     location: newLocation,
     finished: newFinished,
   });
+  console.log(notesList.value);
 };
 
 provide("newNote", addNewNote);
@@ -92,7 +91,6 @@ provide("newNote", addNewNote);
   <Header
     @showAllNotes="showAllNotes"
     @showFinishedNotes="showFinishedNotes"
-    @newNoteForms="addNewNote"
   />
   <div>
     <AllNotes

@@ -1,13 +1,38 @@
 <script setup lang="ts">
-import { inject } from "vue";
-const emit = defineEmits();
-const newNote = inject("newNote");
-console.log("Here we go with a new note:" + newNote);
+import { inject, ref } from "vue";
+import { v4 as uuidv4 } from "uuid";
 
+const emit = defineEmits();
+const addNewNote: any = inject("newNote");
+const newTitle = ref("");
+const newDescription = ref("");
+const newLocation = ref("");
+const newDeadline = ref("");
+
+function addNewNoteHandler() {
+  if (newTitle.value === "") {
+    alert("Please enter a title");
+  } else {
+    console.log("check check");
+    const newID = uuidv4();
+    const newCreationDate = "today for testing";
+    const newFinished = false;
+    addNewNote(
+      newID,
+      newTitle.value,
+      newDescription.value,
+      newCreationDate,
+      newDeadline.value,
+      newLocation.value,
+      newFinished
+    );
+    emit("changeStatusNewNoteModal");
+  }
+}
 </script>
 <template>
   <div class="flex flex-col gap-5">
-    <h2>New Note</h2>
+    <h2 class="text-center text-white text-3xl">New Note</h2>
     <form
       @submit="addNewNote"
       class="flex flex-col bg-slate-400 gap-5 mb-10"
@@ -40,7 +65,7 @@ console.log("Here we go with a new note:" + newNote);
     </form>
     <button
       type="submit"
-      @click="console.log('will add note ')"
+      @click="addNewNoteHandler"
       class="bg-green-400 text-white hover:bg-green-700 duration-250 transition-colors ease-in-out"
     >
       Add

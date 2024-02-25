@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import { inject } from "vue";
+import { inject, ref } from "vue";
+import { v4 as uuidv4 } from "uuid";
 const emit = defineEmits();
-
 const newNote = inject("newNote");
 console.log("Here we go with a new note:" + newNote);
+
+function addNewNote() {
+
+}
+
 </script>
 <template>
   <div class="flex flex-col gap-5">

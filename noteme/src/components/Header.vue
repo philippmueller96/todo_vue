@@ -39,9 +39,13 @@ const changeStatusNewNoteModal = () => {
       <Teleport to="body">
         <div
           v-if="openNewNoteModal"
-          class="modal fixed z-50 rounded-3xl m-auto p-10 top-10 bg-slate-400"
+          class="container_modal"
         >
-          <newNote @changeStatusNewNoteModal="changeStatusNewNoteModal" />
+          <div
+            class="modal fixed z-50 rounded-3xl m-auto p-10 top-10 bg-slate-400"
+          >
+            <newNote @changeStatusNewNoteModal="changeStatusNewNoteModal" />
+          </div>
         </div>
       </Teleport>
     </nav>
@@ -50,6 +54,13 @@ const changeStatusNewNoteModal = () => {
 <style scoped>
 .modal {
   right: 5%;
-  box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.5);
+}
+.container_modal {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>

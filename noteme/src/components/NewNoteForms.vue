@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { inject, ref } from "vue";
-import { v4 as uuidv4 } from "uuid";
+import { inject } from "vue";
 const emit = defineEmits();
 const newNote = inject("newNote");
 console.log("Here we go with a new note:" + newNote);
-
-function addNewNote() {
-
-}
 
 </script>
 <template>

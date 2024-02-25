@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, provide } from "vue";
 import Header from "./components/Header.vue";
 import AllNotes from "./components/AllNotes.vue";
 
@@ -64,12 +64,35 @@ const changeFinished = (id: number) => {
     }, 500);
   }
 };
+
+const addNewNote = (
+  newID: number,
+  newTitle: string,
+  newDescription: string,
+  newCreationDate: string,
+  newDeadline: string,
+  newLocation: string,
+  newFinished: boolean
+) => {
+  notesList.value.push({
+    id: newID,
+    title: newTitle,
+    description: newDescription,
+    creationDate: newCreationDate,
+    deadline: newDeadline,
+    location: newLocation,
+    finished: newFinished,
+  });
+};
+
+provide("newNote", addNewNote);
 </script>
 
 <template>
   <Header
     @showAllNotes="showAllNotes"
     @showFinishedNotes="showFinishedNotes"
+    @newNoteForms="addNewNote"
   />
   <div>
     <AllNotes

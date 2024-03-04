@@ -32,8 +32,9 @@ const emit = defineEmits();
           <div class="flex min-w-0 gap-x-4">
             <input
               type="checkbox"
-              class="w-7 flex-none rounded-full"
+              class="w-7 flex-none cursor-pointer"
               @click="$emit('changeFinished', note.id)"
+              :checked="note.finished"
             />
             <div class="min-w-0 flex-auto">
               <p class="text-sm font-semibold leading-6 text-gray-900">
@@ -44,16 +45,25 @@ const emit = defineEmits();
               </p>
             </div>
           </div>
-          <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-            <p class="text-sm leading-6 text-gray-900">
-              {{ note.creationDate }}
-            </p>
-            <p
-              v-if="note.deadline"
-              class="mt-1 text-xs leading-5 text-gray-500"
-            >
-              {{ note.deadline }}
-            </p>
+          <div class="flex gap-5">
+            <div class="hidden sm:flex sm:flex-col sm:items-end">
+              <p class="text-sm leading-6 text-gray-900">
+                {{ note.creationDate }}
+              </p>
+              <p
+                v-if="note.deadline"
+                class="mt-1 text-xs leading-5 text-gray-500"
+              >
+                {{ note.deadline }}
+              </p>
+            </div>
+            <div class="w-auto">
+              <img
+                src="../../public/edit.png"
+                class="min-w-16 w-16 cursor-pointer hover:contrast-125 duration-150 ease-in-out"
+                @click=""
+              />
+            </div>
           </div>
         </div>
       </li>

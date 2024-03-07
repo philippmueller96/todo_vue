@@ -59,9 +59,9 @@ const emit = defineEmits();
             </div>
             <div class="w-auto">
               <img
-                src="../../public/edit.png"
+                src="/edit.png"
                 class="min-w-16 w-16 cursor-pointer hover:contrast-125 duration-150 ease-in-out"
-                @click=""
+                @click="$emit('editNote', note.id)"
               />
             </div>
           </div>

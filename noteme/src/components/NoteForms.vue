@@ -27,7 +27,7 @@ function addNewNoteHandler() {
       newLocation.value,
       newFinished
     );
-    emit("changeStatusNewNoteModal");
+    emit("changeStatusNoteModal");
   }
 }
 </script>
@@ -69,13 +69,13 @@ function addNewNoteHandler() {
       @click="addNewNoteHandler"
       class="bg-green-400 text-white hover:bg-green-700 duration-250 transition-colors ease-in-out"
     >
-      Add
+      Save
     </button>
     <button
-      @click="$emit('changeStatusNewNoteModal')"
+      @click="$emit('changeStatusNoteModal')"
       class="bg-slate-500 text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
     >
-      close
+      Close
     </button>
   </div>
 </template>

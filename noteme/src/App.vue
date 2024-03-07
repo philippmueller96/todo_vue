@@ -63,6 +63,12 @@ const changeFinished = (id: number) => {
   }
 };
 
+const editNote = (id: number) => {
+  const foundNote = notesList.value.find((obj) => obj.id === id);
+  if (foundNote) {
+  }
+};
+
 const addNewNote = (
   newId: number,
   newTitle: string,
@@ -97,6 +103,7 @@ provide("newNote", addNewNote);
       :notes="notesList"
       :currentList="currentView"
       @changeFinished="changeFinished"
+      @editNote="editNote"
     />
   </div>
 </template>

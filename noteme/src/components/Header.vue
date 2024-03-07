@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import newNote from "./NewNoteForms.vue";
+import newNote from "./NoteForms.vue";
 
 const emit = defineEmits();
-const openNewNoteModal = ref(false);
+const openNoteModal = ref(false);
 
 const showAllNotes = () => {
   emit("showAllNotes");
@@ -13,8 +13,8 @@ const showFinishedNotes = () => {
   emit("showFinishedNotes");
 };
 
-const changeStatusNewNoteModal = () => {
-  openNewNoteModal.value = !openNewNoteModal.value;
+const changeStatusNoteModal = () => {
+  openNoteModal.value = !openNoteModal.value;
 };
 </script>
 
@@ -22,29 +22,29 @@ const changeStatusNewNoteModal = () => {
   <header class="flex justify-center m-8">
     <nav class="flex row gap-20">
       <a
-        class="bg-slate-400 px-5 py-3 rounded-3xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
+        class="bg-slate-400 cursor-pointer px-5 py-3 rounded-3xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
         @click="showAllNotes"
         >All notes</a
       >
       <a
-        class="bg-slate-400 px-5 py-3 rounded-3xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
+        class="bg-slate-400 cursor-pointer px-5 py-3 rounded-3xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
         @click="showFinishedNotes"
         >Finished notes</a
       >
       <a
-        class="bg-slate-400 px-5 py-3 rounded-3xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
-        @click="openNewNoteModal = true"
+        class="bg-slate-400 cursor-pointer px-5 py-3 rounded-3xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
+        @click="openNoteModal = true"
         >New note</a
       >
       <Teleport to="body">
         <div
-          v-if="openNewNoteModal"
+          v-if="openNoteModal"
           class="container_modal"
         >
           <div
             class="modal fixed z-50 rounded-3xl m-auto p-10 top-10 bg-slate-400"
           >
-            <newNote @changeStatusNewNoteModal="changeStatusNewNoteModal" />
+            <newNote @changeStatusNoteModal="changeStatusNoteModal" />
           </div>
         </div>
       </Teleport>
@@ -64,3 +64,4 @@ const changeStatusNewNoteModal = () => {
   height: 100%;
 }
 </style>
+./NoteForms.vue

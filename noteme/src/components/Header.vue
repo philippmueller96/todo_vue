@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import newNote from "./NoteForms.vue";
 
+const props = defineProps({
+  openNoteModal: Boolean,
+});
+
 const emit = defineEmits();
-const openNoteModal = ref(false);
 
 const showAllNotes = () => {
   emit("showAllNotes");
@@ -13,8 +15,8 @@ const showFinishedNotes = () => {
   emit("showFinishedNotes");
 };
 
-const changeStatusNoteModal = () => {
-  openNoteModal.value = !openNoteModal.value;
+const toggleModal = () => {
+  emit("toggleModal");
 };
 </script>
 
@@ -33,18 +35,18 @@ const changeStatusNoteModal = () => {
       >
       <a
         class="bg-slate-400 cursor-pointer px-5 py-3 rounded-3xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
-        @click="openNoteModal = true"
+        @click="toggleModal"
         >New note</a
       >
       <Teleport to="body">
         <div
-          v-if="openNoteModal"
+          v-if="props.openNoteModal"
           class="container_modal"
         >
           <div
             class="modal fixed z-50 rounded-3xl m-auto p-10 top-10 bg-slate-400"
           >
-            <newNote @changeStatusNoteModal="changeStatusNoteModal" />
+            <newNote @changeStatusNoteModal="toggleModal" />
           </div>
         </div>
       </Teleport>

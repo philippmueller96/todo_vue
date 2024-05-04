@@ -45,6 +45,11 @@ const notesList = ref([
 ]);
 
 const currentView = ref(false);
+const openNoteModal = ref(false);
+
+const toggleModal = () => {
+  openNoteModal.value = !openNoteModal.value;
+};
 
 const showAllNotes = () => {
   currentView.value = false;
@@ -63,9 +68,14 @@ const changeFinished = (id: number) => {
   }
 };
 
+const noteToEdit = ref();
+
 const editNote = (id: number) => {
+  console.log("test");
   const foundNote = notesList.value.find((obj) => obj.id === id);
   if (foundNote) {
+    noteToEdit.value = foundNote;
+    openNoteModal.value = true;
   }
 };
 
@@ -91,12 +101,15 @@ const addNewNote = (
 };
 
 provide("newNote", addNewNote);
+provide("editNote", noteToEdit);
 </script>
 
 <template>
   <Header
     @showAllNotes="showAllNotes"
     @showFinishedNotes="showFinishedNotes"
+    @toggleModal="toggleModal"
+    :openNoteModal="openNoteModal"
   />
   <div>
     <AllNotes

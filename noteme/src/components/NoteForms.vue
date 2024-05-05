@@ -42,23 +42,26 @@ function editNoteHandler() {
     noteToEdit.value.deadline = newDeadline.value;
     emit("toggleModal");
   }
+}
 
-  onMounted(() => {
+onMounted(() => {
+  if (noteToEdit.value) {
     updateInputValues();
-  });
+  }
+});
 
-  const updateInputValues = () => {
-    newTitle.value = noteToEdit.value.title;
-    newDescription.value = noteToEdit.value.description;
-    newLocation.value = noteToEdit.value.location;
-    newDeadline.value = noteToEdit.value.deadline;
-  };
+function updateInputValues() {
+  newTitle.value = noteToEdit.value.title;
+  newDescription.value = noteToEdit.value.description;
+  newLocation.value = noteToEdit.value.location;
+  newDeadline.value = noteToEdit.value.deadline;
+  emit("toggleModal");
 }
 </script>
 <template>
   <div class="flex flex-col gap-5">
-    <h2 class="text-center text-white text-3xl">New Note</h2>
     <div v-if="noteToEdit">
+      <h2 class="text-center text-white text-3xl">Edit Note</h2>
       <form
         @submit="editNoteHandler"
         class="flex flex-col bg-slate-400 gap-5 mb-10"
@@ -66,6 +69,7 @@ function editNoteHandler() {
         <input
           type="text"
           v-model="newTitle"
+          :placeholder="noteToEdit.value.title"
           required
           class="inputNewNote"
         />
@@ -94,6 +98,7 @@ function editNoteHandler() {
       </button>
     </div>
     <div v-else>
+      <h2 class="text-center text-white text-3xl">New Note</h2>
       <form
         @submit="addNewNote"
         class="flex flex-col bg-slate-400 gap-5 mb-10"

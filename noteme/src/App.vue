@@ -101,7 +101,7 @@ const addNewNote = (
 };
 
 provide("newNote", addNewNote);
-provide("editNote", noteToEdit);
+provide("noteToEdit", noteToEdit);
 </script>
 
 <template>

@@ -69,7 +69,6 @@ function updateInputValues() {
         <input
           type="text"
           v-model="newTitle"
-          :placeholder="noteToEdit.value.title"
           required
           class="inputNewNote"
         />

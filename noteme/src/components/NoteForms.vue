@@ -16,7 +16,6 @@ function addNewNoteHandler() {
   if (newTitle.value === "") {
     alert("Please enter a title");
   } else {
-    console.log("check check");
     const newID = uuidv4();
     const newCreationDate = "today for testing";
     const newFinished = false;
@@ -29,7 +28,7 @@ function addNewNoteHandler() {
       newLocation.value,
       newFinished
     );
-    emit("toggleModal");
+    emit("changeStatusNoteModal");
   }
 }
 function editNoteHandler() {
@@ -40,13 +39,16 @@ function editNoteHandler() {
     noteToEdit.value.description = newDescription.value;
     noteToEdit.value.location = newLocation.value;
     noteToEdit.value.deadline = newDeadline.value;
-    emit("toggleModal");
+    emit("changeStatusNoteModal");
   }
 }
 
+//finde value to check for noteToEdit
 onMounted(() => {
   if (noteToEdit.value) {
     updateInputValues();
+  } else {
+    resetRefs();
   }
 });
 
@@ -55,8 +57,14 @@ function updateInputValues() {
   newDescription.value = noteToEdit.value.description;
   newLocation.value = noteToEdit.value.location;
   newDeadline.value = noteToEdit.value.deadline;
-  emit("toggleModal");
 }
+
+const resetRefs = () => {
+  newTitle.value = "";
+  newDescription.value = "";
+  newLocation.value = "";
+  newDeadline.value = "";
+};
 </script>
 <template>
   <div class="flex flex-col gap-5">
@@ -72,7 +80,7 @@ function updateInputValues() {
           required
           class="inputNewNote"
         />
-        <input
+        <textarea
           type="text"
           v-model="newDescription"
           class="inputNewNote"

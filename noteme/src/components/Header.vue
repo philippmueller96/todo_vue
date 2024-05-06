@@ -18,6 +18,7 @@ const showFinishedNotes = () => {
 const toggleModal = () => {
   emit("toggleModal");
 };
+
 </script>
 
 <template>

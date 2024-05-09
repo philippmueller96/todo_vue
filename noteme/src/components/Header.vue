@@ -3,6 +3,7 @@ import newNote from "./NoteForms.vue";
 
 const props = defineProps({
   openNoteModal: Boolean,
+  isEditing: Boolean,
 });
 
 const emit = defineEmits();
@@ -17,8 +18,10 @@ const showFinishedNotes = () => {
 
 const toggleModal = () => {
   emit("toggleModal");
+  if (props.isEditing) {
+    emit("resetEditing");
+  }
 };
-
 </script>
 
 <template>

@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 const emit = defineEmits();
 
 const addNewNote: any = inject("newNote");
-const noteToEdit: any = inject("noteToEdit");
+const { noteToEdit, isEditing }: any = inject("noteToEdit");
 
 const newTitle = ref("");
 const newDescription = ref("");
@@ -39,16 +39,14 @@ function editNoteHandler() {
     noteToEdit.value.description = newDescription.value;
     noteToEdit.value.location = newLocation.value;
     noteToEdit.value.deadline = newDeadline.value;
+    isEditing.value = false;
     emit("changeStatusNoteModal");
   }
 }
 
-//finde value to check for noteToEdit
 onMounted(() => {
-  if (noteToEdit.value) {
+  if (isEditing.value) {
     updateInputValues();
-  } else {
-    resetRefs();
   }
 });
 
@@ -58,17 +56,10 @@ function updateInputValues() {
   newLocation.value = noteToEdit.value.location;
   newDeadline.value = noteToEdit.value.deadline;
 }
-
-const resetRefs = () => {
-  newTitle.value = "";
-  newDescription.value = "";
-  newLocation.value = "";
-  newDeadline.value = "";
-};
 </script>
 <template>
   <div class="flex flex-col gap-5">
-    <div v-if="noteToEdit">
+    <div v-if="isEditing === true">
       <h2 class="text-center text-white text-3xl">Edit Note</h2>
       <form
         @submit="editNoteHandler"

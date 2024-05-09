@@ -23,29 +23,30 @@ const emit = defineEmits();
   <div class="flex justify-center">
     <ul
       role="list"
-      class="w-1/2"
+      class="w-2/3"
     >
       <li
         v-for="(note, index) in notes"
         :key="index"
-        class="pb-4"
       >
         <div
           v-if="changeList(note)"
-          class="flex justify-between gap-x-6 p-5 rounded-2xl bg-yellow-200"
+          class="flex justify-between gap-x-6 p-5 rounded-2xl bg-yellow-200 mb-4"
         >
-          <div class="flex min-w-0 gap-x-4">
-            <input
-              type="checkbox"
-              class="w-7 flex-none cursor-pointer"
-              @click="$emit('changeFinished', note.id)"
-              :checked="note.finished"
-            />
+          <div class="flex gap-x-4">
+            <div class="flex my-auto">
+              <input
+                type="checkbox"
+                class="w-7 h-7 flex-none cursor-pointer"
+                @click="$emit('changeFinished', note.id)"
+                :checked="note.finished"
+              />
+            </div>
             <div class="min-w-0 flex-auto">
               <p class="text-sm font-semibold leading-6 text-gray-900">
                 {{ note.title }}
               </p>
-              <p class="mt-1 truncate text-xs leading-5 text-gray-500">
+              <p class="mt-1 text-xs leading-5 text-gray-500">
                 {{ note.description }}
               </p>
             </div>

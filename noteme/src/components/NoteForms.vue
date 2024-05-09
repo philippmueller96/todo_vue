@@ -4,20 +4,20 @@ import { v4 as uuidv4 } from "uuid";
 
 const emit = defineEmits();
 
-const addNewNote: any = inject("newNote");
+const { addNewNote, currentDate }: any = inject("newNote");
 const { noteToEdit, isEditing }: any = inject("noteToEdit");
 
 const newTitle = ref("");
 const newDescription = ref("");
 const newLocation = ref("");
-const newDeadline = ref("");
+const newDeadline = ref(currentDate);
 
 function addNewNoteHandler() {
   if (newTitle.value === "") {
     alert("Please enter a title");
   } else {
     const newID = uuidv4();
-    const newCreationDate = "today for testing";
+    const newCreationDate = currentDate;
     const newFinished = false;
     addNewNote(
       newID,
@@ -82,7 +82,7 @@ function updateInputValues() {
           class="inputNewNote"
         />
         <input
-          type="text"
+          type="date"
           v-model="newDeadline"
           class="inputNewNote"
         />
@@ -121,9 +121,8 @@ function updateInputValues() {
           class="inputNewNote"
         />
         <input
-          type="text"
+          type="date"
           v-model="newDeadline"
-          placeholder="Deadline"
           class="inputNewNote"
         />
       </form>

@@ -12,6 +12,11 @@ const changeList = (note: any) => {
   }
 };
 
+function formateDate(date) {
+  const [year, month, day] = date.split("-");
+  return `${day}.${month}.${year}`;
+}
+
 const emit = defineEmits();
 </script>
 <template>
@@ -48,13 +53,13 @@ const emit = defineEmits();
           <div class="flex gap-5">
             <div class="hidden sm:flex sm:flex-col sm:items-end">
               <p class="mt-1 text-xs leading-5 text-gray-500">
-                {{ note.creationDate }}
+                {{ formateDate(note.creationDate) }}
               </p>
               <p
                 v-if="note.deadline"
                 class="mt-1 text-s leading-6 text-gray-900"
               >
-                {{ note.deadline }}
+                {{ formateDate(note.deadline) }}
               </p>
             </div>
             <div class="w-auto">

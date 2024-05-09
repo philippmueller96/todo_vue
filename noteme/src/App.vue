@@ -76,7 +76,6 @@ const changeFinished = (id: number) => {
 const noteToEdit = ref();
 
 const editNote = (id: number) => {
-  console.log("test");
   const foundNote = notesList.value.find((obj) => obj.id === id);
   if (foundNote) {
     noteToEdit.value = foundNote;
@@ -103,7 +102,6 @@ const addNewNote = (
     location: newLocation,
     finished: newFinished,
   });
-  console.log(notesList.value);
 };
 
 provide("newNote", addNewNote);

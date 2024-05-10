@@ -31,7 +31,7 @@ const emit = defineEmits();
       >
         <div
           v-if="changeList(note)"
-          class="flex justify-between gap-x-6 p-5 rounded-2xl shadow-3xl mb-6 bg-white"
+          class="flex justify-between gap-x-6 p-5 rounded-2xl shadow-3xl mb-6 bg-white hover:-translate-y-1 hover:scale-110 duration-300"
         >
           <div class="flex gap-x-4">
             <div class="flex my-auto">
@@ -53,8 +53,8 @@ const emit = defineEmits();
           </div>
           <div class="flex gap-5">
             <div class="hidden sm:flex sm:flex-col sm:items-end">
-              <p class="mt-1 text-xs leading-5 text-gray-500">
-                {{ formateDate(note.creationDate) }}
+              <p class="mt-1 text-xs text-nowrap leading-5 text-gray-500">
+                erstellt am {{ formateDate(note.creationDate) }}
               </p>
               <p
                 v-if="note.deadline < note.creationDate"
@@ -65,15 +65,15 @@ const emit = defineEmits();
               </p>
               <p
                 v-else-if="note.deadline && note.deadline !== note.creationDate"
-                class="mt-1 text-s leading-6 text-gray-900"
+                class="mt-1 text-s text-nowrap leading-6 text-gray-900"
               >
-                {{ formateDate(note.deadline) }}
+                Fällig am {{ formateDate(note.deadline) }}
               </p>
               <p
                 v-else-if="note.deadline && note.deadline === note.creationDate"
                 class="mt-1 text-s text-nowrap leading-6 text-gray-900"
               >
-                Heute erledigen
+                Fällig heute
               </p>
               <div>
                 

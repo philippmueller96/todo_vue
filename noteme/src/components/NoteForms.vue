@@ -132,7 +132,7 @@ function updateInputValues() {
       <button
         type="submit"
         @click="addNewNoteHandler"
-        class="bg-emerald-300 text-white hover:bg-emerald-500 duration-250 transition-colors ease-in-out"
+        class="bg-green-400 text-white hover:bg-green-700 duration-250 transition-colors ease-in-out"
       >
         Add note
       </button>
@@ -140,7 +140,7 @@ function updateInputValues() {
 
     <button
       @click="$emit('changeStatusNoteModal')"
-      class="bg-zinc-400 text-white hover:bg-zinc-600 duration-250 transition-colors ease-in-out"
+      class="bg-zinc-400 text-white hover:bg-zinc-500 duration-250 transition-colors ease-in-out"
     >
       Close
     </button>
@@ -149,7 +149,7 @@ function updateInputValues() {
 <style scoped>
 .inputNewNote {
   padding: 10px 20px;
-  border-radius: 30px;
+  border-radius: 15px;
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.2);
 }
 button {

@@ -97,7 +97,7 @@ function updateInputValues() {
       </button>
     </div>
     <div v-else>
-      <h2 class="text-center text-white text-3xl">New Note</h2>
+      <h2 class="text-center text-zinc-500 text-3xl">New Note</h2>
       <form
         @submit="addNewNote"
         class="flex flex-col gap-5 mb-10"
@@ -132,7 +132,7 @@ function updateInputValues() {
       <button
         type="submit"
         @click="addNewNoteHandler"
-        class="bg-emerald-300 text-white hover:bg-green-700 duration-250 transition-colors ease-in-out"
+        class="bg-emerald-300 text-white hover:bg-emerald-500 duration-250 transition-colors ease-in-out"
       >
         Add note
       </button>
@@ -140,7 +140,7 @@ function updateInputValues() {
 
     <button
       @click="$emit('changeStatusNoteModal')"
-      class="bg-slate-500 text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
+      class="bg-zinc-400 text-white hover:bg-zinc-600 duration-250 transition-colors ease-in-out"
     >
       Close
     </button>

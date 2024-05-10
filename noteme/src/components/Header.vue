@@ -28,12 +28,12 @@ const toggleModal = () => {
   <header class="flex justify-center m-8">
     <nav class="flex row gap-20">
       <a
-        class="bg-zinc-400 cursor-pointer px-5 py-3 rounded-2xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
+        class="bg-zinc-400 cursor-pointer px-5 py-3 rounded-2xl text-white hover:bg-zinc-600 duration-250 transition-colors ease-in-out"
         @click="showAllNotes"
         >All notes</a
       >
       <a
-        class="bg-zinc-400 cursor-pointer px-5 py-3 rounded-2xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
+        class="bg-zinc-400 cursor-pointer px-5 py-3 rounded-2xl text-white hover:bg-zinc-600 duration-250 transition-colors ease-in-out"
         @click="showFinishedNotes"
         >Finished notes</a
       >

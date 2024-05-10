@@ -37,7 +37,7 @@ const emit = defineEmits();
             <div class="flex my-auto">
               <input
                 type="radio"
-                class="w-7 h-7 flex-none cursor-pointer checked:accent-green-400 "
+                class="w-7 h-7 flex-none cursor-pointer checked:accent-green-400"
                 @click="$emit('changeFinished', note.id)"
                 :checked="note.finished"
               />

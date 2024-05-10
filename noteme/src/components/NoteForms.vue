@@ -60,10 +60,10 @@ function updateInputValues() {
 <template>
   <div class="flex flex-col gap-5">
     <div v-if="isEditing === true">
-      <h2 class="text-center text-white text-3xl">Edit Note</h2>
+      <h2 class="text-center text-zinc-500 text-3xl">Edit Note</h2>
       <form
         @submit="editNoteHandler"
-        class="flex flex-col bg-slate-400 gap-5 mb-10"
+        class="flex flex-col gap-5 mb-10"
       >
         <input
           type="text"
@@ -75,6 +75,7 @@ function updateInputValues() {
           type="text"
           v-model="newDescription"
           class="inputNewNote"
+          rows="5"
         />
         <input
           type="text"
@@ -99,7 +100,7 @@ function updateInputValues() {
       <h2 class="text-center text-white text-3xl">New Note</h2>
       <form
         @submit="addNewNote"
-        class="flex flex-col bg-slate-400 gap-5 mb-10"
+        class="flex flex-col gap-5 mb-10"
       >
         <input
           type="text"
@@ -108,11 +109,12 @@ function updateInputValues() {
           required
           class="inputNewNote"
         />
-        <input
+        <textarea
           type="text"
           v-model="newDescription"
           placeholder="Desciption"
           class="inputNewNote"
+          rows="5"
         />
         <input
           type="text"
@@ -130,7 +132,7 @@ function updateInputValues() {
       <button
         type="submit"
         @click="addNewNoteHandler"
-        class="bg-green-400 text-white hover:bg-green-700 duration-250 transition-colors ease-in-out"
+        class="bg-emerald-300 text-white hover:bg-green-700 duration-250 transition-colors ease-in-out"
       >
         Add note
       </button>
@@ -148,10 +150,16 @@ function updateInputValues() {
 .inputNewNote {
   padding: 10px 20px;
   border-radius: 30px;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.2);
 }
 button {
   padding: 10px;
-  border-radius: 30px;
+  border-radius: 15px;
   width: 100%;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  margin-bottom: 15px;
 }
 </style>

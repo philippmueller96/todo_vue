@@ -28,17 +28,17 @@ const toggleModal = () => {
   <header class="flex justify-center m-8">
     <nav class="flex row gap-20">
       <a
-        class="bg-slate-400 cursor-pointer px-5 py-3 rounded-3xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
+        class="bg-zinc-400 cursor-pointer px-5 py-3 rounded-2xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
         @click="showAllNotes"
         >All notes</a
       >
       <a
-        class="bg-slate-400 cursor-pointer px-5 py-3 rounded-3xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
+        class="bg-zinc-400 cursor-pointer px-5 py-3 rounded-2xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
         @click="showFinishedNotes"
         >Finished notes</a
       >
       <a
-        class="bg-slate-400 cursor-pointer px-5 py-3 rounded-3xl text-white hover:bg-slate-700 duration-250 transition-colors ease-in-out"
+        class="bg-amber-400 cursor-pointer px-5 py-3 rounded-2xl text-white hover:bg-orange-600 duration-250 transition-colors ease-in-out"
         @click="toggleModal"
         >New note</a
       >
@@ -48,7 +48,7 @@ const toggleModal = () => {
           class="container_modal"
         >
           <div
-            class="modal fixed z-50 rounded-3xl m-auto p-10 top-10 bg-slate-400"
+            class="modal fixed z-50 rounded-3xl m-auto p-10 top-10 bg-zinc-200"
           >
             <newNote @changeStatusNoteModal="toggleModal" />
           </div>

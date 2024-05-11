@@ -75,15 +75,23 @@ const emit = defineEmits();
               >
                 Fällig heute
               </p>
-              <div>
-                
+              <div v-if="note.location">
+                <a class="flex my-auto pt-3" :href="'https://www.google.com/maps/search/?api=1&query=' + note.location" target="_blank">
+                  <img src="/location.png" class="w-5 h-5 cursor-pointer" />
+                  <p>{{ note.location }}</p>
+                </a>
               </div>
             </div>
-            <div class="w-auto">
+            <div class="w-auto flex flex-row gap-3 my-auto">
               <img
                 src="/edit.png"
-                class="min-w-16 w-16 cursor-pointer hover:brightness-75 duration-150 ease-in-out"
+                class="min-w-10 w-10 h-10 cursor-pointer hover:brightness-75 duration-150 ease-in-out"
                 @click="$emit('editNote', note.id)"
+              />
+              <img
+                src="/delete.png"
+                class="min-w-9 w-9 h-9 cursor-pointer hover:contrast-200 hover:brightness-75 duration-150 ease-in-out"
+                @click="$emit('deleteNote', note.id)"
               />
             </div>
           </div>

@@ -86,6 +86,13 @@ const editNote = (id: number) => {
   }
 };
 
+const deleteNote = (id: number) => {
+  const foundNote = notesList.value.find((obj) => obj.id === id);
+  if (foundNote) {
+    notesList.value = notesList.value.filter((obj) => obj.id !== id);
+  }
+};
+
 const addNewNote = (
   newId: number,
   newTitle: string,
@@ -125,6 +132,7 @@ provide("noteToEdit", { noteToEdit, isEditing });
       :currentList="currentView"
       @changeFinished="changeFinished"
       @editNote="editNote"
+      @deleteNote="deleteNote"
     />
   </div>
 </template>

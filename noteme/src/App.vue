@@ -27,18 +27,17 @@ const notesList = ref([
   },
   {
     id: 3,
-    title: "Lecker Bierchen",
-    description:
-      "Janosch und Sven anschreiben und nach Bierchen und Billard oder so fragen",
+    title: "Janosch und Sven anschreiben",
+    description: "Verabreden auf Billard, Darts oder Spieleabend.",
     creationDate: currentDate,
     deadline: currentDate,
-    location: "",
+    location: "Mensa Plagwitz",
     finished: false,
   },
   {
     id: 4,
-    title: "Props üben",
-    description: "Du solltest weiterhin den Umgang mit Props üben",
+    title: "Props",
+    description: "Das Projekt soll den Umgang mit Props verbessern.",
     creationDate: currentDate,
     deadline: currentDate,
     location: "",
@@ -124,16 +123,14 @@ provide("noteToEdit", { noteToEdit, isEditing });
     @toggleModal="toggleModal"
     :openNoteModal="openNoteModal"
     @resetEditing="resetEditing"
-    :isEditing="isEditing"
-  />
+    :isEditing="isEditing" />
   <div>
     <AllNotes
       :notes="notesList"
       :currentList="currentView"
       @changeFinished="changeFinished"
       @editNote="editNote"
-      @deleteNote="deleteNote"
-    />
+      @deleteNote="deleteNote" />
   </div>
 </template>
 
